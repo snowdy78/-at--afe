@@ -1,6 +1,6 @@
 
 @import "../node_modules/bootstrap/scss/bootstrap";
-
+@import "../node_modules/bootstrap-icons/font/bootstrap-icons.scss";
 
 .header-btn, .header-container {
 	background: linear-gradient(180deg, $gray-100 0 calc(100% - 1px), $primary calc(100% - 1px) 100%);
@@ -8,4 +8,14 @@
 }
 .header-btn:hover {
 	background: linear-gradient(180deg, $gray-200 0 calc(100% - 3px), $primary calc(100% - 3px) 100%);
+}
+a {
+	color: $dark;
+}
+a:hover {
+	color: $dark;
+	cursor: default
+}
+body {
+	min-height: 100vh;
 }
