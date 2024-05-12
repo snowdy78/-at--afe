@@ -1,0 +1,11 @@
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+
+.header-btn, .header-container {
+	background: linear-gradient(180deg, $gray-100 0 calc(100% - 1px), $primary calc(100% - 1px) 100%);
+	transition: background 0.5s ease-in-out;
+}
+.header-btn:hover {
+	background: linear-gradient(180deg, $gray-200 0 calc(100% - 3px), $primary calc(100% - 3px) 100%);
+}
