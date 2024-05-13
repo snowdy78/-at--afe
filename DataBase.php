@@ -23,5 +23,9 @@
 				return $result->fetch_assoc();
 			return NULL;
 		}
+		public function getUsers()
+		{
+			return $this->query('SELECT * FROM `users`');
+		}
 	}
 ?>
