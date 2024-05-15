@@ -3,11 +3,11 @@
 @import "../node_modules/bootstrap-icons/font/bootstrap-icons.scss";
 
 .header-btn, .header-container {
-	background: linear-gradient(180deg, $gray-100 0 calc(100% - 1px), $primary calc(100% - 1px) 100%);
+	background: linear-gradient(180deg, $light 0 calc(100% - 1px), $primary calc(100% - 1px) 100%);
 	transition: background 0.5s ease-in-out;
 }
 .header-btn:hover {
-	background: linear-gradient(180deg, $gray-200 0 calc(100% - 3px), $primary calc(100% - 3px) 100%);
+	background: linear-gradient(180deg, tint-color($light, 20%) 0 calc(100% - 3px), $primary calc(100% - 3px) 100%);
 }
 a {
 	color: $dark;
@@ -18,4 +18,14 @@ a:hover {
 }
 body {
 	min-height: 100vh;
+}
+.bg-gray {
+	background-color: shade-color($light, 40%);
+}
+.add-btn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 30px;
+	height: 30px;
 }

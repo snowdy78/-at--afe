@@ -13,8 +13,8 @@
 
 				if ($user['employee_type_id'] === "1")
 				{
-					print "<a class='col-2 text-decoration-none user-select-none header-btn p-3' href='users.php'>Пользователи</a>";
-					print "<a class='col-1 text-decoration-none user-select-none header-btn p-3' href='orders.php'>Заказы</a>";
+					print "<a class='col text-decoration-none user-select-none header-btn p-3' href='users.php'>Пользователи</a>";
+					print "<a class='col text-decoration-none user-select-none header-btn p-3' href='orders.php'>Заказы</a>";
 					$count+=3;
 				}
 			}
@@ -23,7 +23,7 @@
 		
 			
 		</div>
-		<a class="col-2 text-decoration-none user-select-none header-btn p-3" href="login.php">
+		<a class="col text-decoration-none user-select-none header-btn p-3" href="login.php">
 			Авторизация
 		</a>
 	</div>
