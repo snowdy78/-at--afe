@@ -25,7 +25,7 @@
 		}
 		public function getUsers()
 		{
-			return $this->query('SELECT * FROM `users`')->fetch_all(MYSQLI_ASSOC);
+			return $this->query('SELECT * FROM `users`');
 		}
 	}
 ?>

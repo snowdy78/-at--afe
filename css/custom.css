@@ -20078,8 +20078,16 @@ textarea.form-control-lg {
   background: linear-gradient(180deg, #f2bdd8 0 calc(100% - 3px), #d63384 calc(100% - 3px) 100%);
 }
 
+.bg-lighter {
+  background-color: #f5cee2;
+}
+
 a {
   color: #212529;
+}
+
+i {
+  display: inline-block;
 }
 
 a:hover {

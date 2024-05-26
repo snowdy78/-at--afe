@@ -36,11 +36,13 @@
 					
 					</div>
 				</div>
+
 				<button type="submit" class="btn btn-primary m-3">Авторизоваться</button>
 			</form>
 		</div>
 	</body>
 	<?php
 		include_once "load-bottom.php"; 	
+		
 	?>
 </html>

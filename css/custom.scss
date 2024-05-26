@@ -9,8 +9,14 @@
 .header-btn:hover {
 	background: linear-gradient(180deg, tint-color($light, 20%) 0 calc(100% - 3px), $primary calc(100% - 3px) 100%);
 }
+.bg-lighter {
+	background-color: tint-color($light, 40%);
+}
 a {
 	color: $dark;
+}
+i {
+	display: inline-block;
 }
 a:hover {
 	color: $dark;
@@ -29,3 +35,6 @@ body {
 	width: 30px;
 	height: 30px;
 }
+.order {}
+#make-order-list {}
+.add-order-btn {}
