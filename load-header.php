@@ -15,7 +15,17 @@
 				{
 					print "<a class='col text-decoration-none user-select-none header-btn p-3' href='users.php'>Пользователи</a>";
 					print "<a class='col text-decoration-none user-select-none header-btn p-3' href='orders.php'>Заказы</a>";
-					$count+=3;
+					$count += 3;
+				}
+				else if ($user['employee_type_id'] === "2")
+				{
+					print "<a class='col text-decoration-none user-select-none header-btn p-3' href='orders.php'>Заказы</a>";
+					$count += 2;
+				}
+				else if ($user['employee_type_id'] === "3")
+				{
+					print "<a class='col text-decoration-none user-select-none header-btn p-3' href='orders.php'>Заказы</a>";
+					$count += 2;
 				}
 			}
 			print "<div class='col-".(9 - $count)." user-select-none header-container p-3'>";

@@ -8,7 +8,7 @@
 			$ids[] = $_GET['id'][$i];
 		}
 		$db = DataBase::join();
-		$query = "INSERT INTO `active-orders` VALUES(DEFAULT, '".json_encode($ids)."')";
+		$query = "INSERT INTO `active-orders` VALUES(DEFAULT, '".json_encode($ids)."', DEFAULT)";
 		var_dump($query);
 		$result = $db->query($query);
 		if ($result)

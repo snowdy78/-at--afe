@@ -9,6 +9,9 @@
 		{
 			mysqli::__construct($servername, $username, $password, $dbname, $dbhost);
 		}
+		public function __destruct() {
+			$this->close();
+		}
 		public function getUser(string $mail, string $password)
 		{
 			$result = $this->query("SELECT * FROM `users` WHERE mail='$mail' and password='".sha1($password)."'");

@@ -12,6 +12,18 @@
 .bg-lighter {
 	background-color: tint-color($light, 40%);
 }
+.nothing-order {
+	color: rgb(187, 162, 194)
+}
+.confirmed-order {
+	color: rgb(37, 172, 82);
+}
+.standby-order {
+	color: rgb(255, 217, 47);
+}
+.ready-order {
+	color: rgb(77, 231, 63);
+}
 a {
 	color: $dark;
 }
@@ -28,6 +40,7 @@ body {
 .bg-gray {
 	background-color: shade-color($light, 40%);
 }
+
 .add-btn {
 	display: flex;
 	justify-content: center;

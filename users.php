@@ -11,21 +11,40 @@
 		?>
 		<div class="container bg-light border border-top-0">
 			<h3 class="text-center py-3">Пользователи</h3>
+			<?
+				if (!empty($_COOKIE['user_id'])) 
+				{
+					include_once "DataBase.php";
+					$db = DataBase::join();
+					$user = $db->getUserById($_COOKIE['user_id']);
+					if (!empty($user))
+					{
+						echo '<div class="container text-end">
+							<a href="add-user.php" class="btn btn-secondary">Добавить пользователя</a>
+							</div>';
+						}
+					}
+					?>
 			<hr>
-			<div class="row">
-		<?php 
+			<?php 
 			include_once "DataBase.php";
-
+			
 			$db = DataBase::join();
-			$users = $db->getUsers();
-
-			if (!empty($users))
+			$result = $db->getUsers();
+			
+			if (!empty($result))
 			{
 				$user_jobs = array("Администратор", "Официант", "Повар");
-				for ($i = 0; $i < $users->num_rows; $i++)
+				$users = $result->fetch_all();
+				for ($i = 0; $i < $result->num_rows; $i++)
 				{
-					$user = $users->fetch_all()[$i];
-					print "<div class='col fs-5 font-weight-bold'>User ".$user[0]."</div>";
+			?>
+			<div>
+			<div class="row">
+			<?
+					$user = $users[$i];
+					$user_id = $user[0];
+					print "<div class='col fs-5 font-weight-bold'>User ".$user_id."</div>";
 				?>					
 			</div>
 			
@@ -41,10 +60,13 @@
 				
 				<?php 
 					print "<div class='col'>".$user_jobs[$user[1] - 1]." <span class='text-primary bi-star-fill'></span></div>";
-				}}
+					print "<div class='row'><a class='btn btn-primary' href='rm-user.php?user_id=$user_id'>Удалить</a></div>";
+					print "</div>";
+					print "</div>";
+				}
+			}
 				?>
 				
-			</div>
 			<div class="row py-2">
 				
 			</div>
