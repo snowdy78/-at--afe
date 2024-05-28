@@ -5,3 +5,14 @@
 <link href="/css/style.css" rel="stylesheet">
 <!-- Bootstrap Font Icon CSS -->
 <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
+<script>
+	if (!("<?echo $_COOKIE['user_id']?>"))
+	{
+		let path = window.location.pathname;
+		let page = path.split('/').pop();
+		if (page !== "login.php")
+		{
+			window.location = "login.php";
+		}
+	}
+</script>

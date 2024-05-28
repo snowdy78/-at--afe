@@ -79,7 +79,7 @@
 			
 			if ($emp_type === "2")
 			{
-				echo '<a class="btn btn-success btn-cook m-2" href="to-cooking.php">На готовку</a>';
+				echo '<a class="btn btn-success btn-cook m-2" href="to-cooking.php?order_id='.$active_order['active_order_id'].'">На готовку</a>';
 				echo 
 				'<a 
 					href="rm-order.php?order_id='.$active_order['active_order_id'].'" 
