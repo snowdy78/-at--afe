@@ -27,7 +27,7 @@
 					for ($i = 0; $i < $result->num_rows; $i++)
 					{
 						$order = $orders[$i];
-						$order_id = $order['active_order_id'];
+						$order_id = $order[0];
 						print_order($order_id);
 					}
 				}

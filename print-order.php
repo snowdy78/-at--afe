@@ -2,13 +2,10 @@
 	include_once "DataBase.php";
 	function print_order($order_id)
 	{
-		if ($_COOKIE)
+		if (!$_COOKIE['user_id'])
 		{
-			if (!$_COOKIE['user_id'])
-			{
-				echo "unfound user";
-				exit;
-			}
+			echo "unfound user";
+			exit;
 		}
 		$db = DataBase::join();
 		$user_id = $_COOKIE['user_id'];
@@ -18,8 +15,7 @@
 			echo "user is not found";
 			exit;
 		}
-		$emp_type = $user['employee_type'];
-		
+		$emp_type = $user['employee_type_id'];
 		$result = $db->query("SELECT * FROM `active-orders` WHERE active_order_id=".$order_id);
 		if ($result)
 		{
@@ -94,6 +90,7 @@
 			}
 			else if ($emp_type === "3")
 			{
+				echo '<a class="btn btn-success btn-cook m-2" href="ready-order.php">Готов !</a>';
 			}
 	
 		
