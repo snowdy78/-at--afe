@@ -7,9 +7,20 @@
 	<body data-bs-theme="light">
 		<?php
 			include_once "load-header.php"; 	
+			$user_find = $db->query("SELECT * FROM `users` WHERE id=".$_COOKIE['user_id']);
+			if (!$user_find)
+			{
+				header('location: login.php');
+			}
+			$user = $user_find->fetch_assoc();
 		?>
 		<div class="container p-3">
-			<a href="make-order.php" class="btn btn-secondary bi-plus">Создать заказ</a>
+			<?php 
+				if ($user['employee_type_id'] === '2') 
+				{
+					echo '<a href="make-order.php" class="btn btn-secondary bi-plus">Создать заказ</a>';
+				}
+			?>
 			<div class="container p-3">
 			<?php
 				include_once "DataBase.php";

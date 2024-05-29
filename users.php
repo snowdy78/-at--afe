@@ -8,6 +8,16 @@
 	<body data-bs-theme="light">
 		<?php
 			include_once "load-header.php"; 	
+			$user_find = $db->query("SELECT * FROM `users` WHERE id=".$_COOKIE['user_id']);
+			if (!$user_find)
+			{
+				header('location: login.php');
+			}
+			$user = $user_find->fetch_assoc();
+			if ($user['employee_type_id'] !== '1')
+			{
+				header('location: main.php');
+			}
 		?>
 		<div class="container bg-light border border-top-0">
 			<h3 class="text-center py-3">Пользователи</h3>

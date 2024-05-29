@@ -8,11 +8,20 @@
 	<body data-bs-theme="light">
 		<?php
 			include_once "load-header.php"; 	
+			$user_find = $db->query("SELECT * FROM `users` WHERE id=".$_COOKIE['user_id']);
+			if (!$user_find)
+			{
+				header('location: login.php');
+			}
 		?>
 		<div class="container">
 			<div class="d-flex justify-content-end p-3">
-				
-				<button class="btn btn-primary" onclick="onMakeOrder()">Создать</button>
+				<?php
+					if ($user['employee_type_id'] === "2")
+					{
+						echo '<button class="btn btn-primary" onclick="onMakeOrder()">Создать</button>';
+					}
+				?>
 			</div>
 			<div class="container w-100 m-0 p-0">
 				<div class="row text-center g-0">
@@ -22,23 +31,23 @@
 							<?php 
 								$result = $db->query('SELECT * FROM `orders`');
 								$orders = $result->fetch_all(MYSQLI_ASSOC);
+								$user = $user_find->fetch_assoc();
 								foreach($orders as $order)
 								{
-							?>
-									<div class="order container border border-primary bg-lighter p-2 my-2">
-										<?
-														
-											echo "<div class='container text-left'>";
-											echo "<h4 class='order-name'><i>".$order['name']."</i></h4>";
-											echo "<div class='px-4 order-price'>Цена: <b><i>".$order['price']."</i> р.</b></div>";
-											echo "<div class='px-4 order-weight'>вес: <b><i>".$order['weight']."</i> г.</b></div>";
-											echo "</div>";	
-										?>	
-										<div class="d-flex justify-content-center add pb-1 pt-3">
-											<button class="btn btn-primary make-order-btn"><span class="bi-plus"></span>Добавить</button>
-										</div>
-									</div>
-							<?php
+									echo '<div class="order container border border-primary bg-lighter p-2 my-2">';
+									echo "<div class='container text-left'>";
+									echo "<h4 class='order-name'><i>".$order['name']."</i></h4>";
+									echo "<div class='px-4 order-price'>Цена: <b><i>".$order['price']."</i> р.</b></div>";
+									echo "<div class='px-4 order-weight'>вес: <b><i>".$order['weight']."</i> г.</b></div>";
+									echo "</div>";	
+									if ($user['employee_type_id'] === "2")
+									{
+										echo '
+											<div class="d-flex justify-content-center add pb-1 pt-3">
+												<button class="btn btn-primary make-order-btn"><span class="bi-plus"></span>Добавить</button>
+											</div>';
+									}
+									echo '</div>';										
 								}
 							?>
 						</div>

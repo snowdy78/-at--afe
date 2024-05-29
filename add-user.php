@@ -6,7 +6,17 @@
 	</head>
 	<body data-bs-theme="light">
 		<?php
-			include_once "load-header.php"; 	
+			include_once "load-header.php"; 
+			$user_find = $db->query("SELECT * FROM `users` WHERE id=".$_COOKIE['user_id']);
+			if (!$user_find)
+			{
+				header('location: login.php');
+			}
+			$user = $user_find->fetch_assoc();
+			if ($user['employee_type_id'] !== '1')
+			{
+				header('location: main.php');
+			}
 		?>
 		<div class="container bg-light p-3">
 			<form class="container text-end" method="post" action="add-user-redirection.php">
